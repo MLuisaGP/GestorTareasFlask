@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to my Flask app</h1>
+    </header>
+    <main>
+        <p>This is a minima structura.</p>
+        <div>
+            <form action="{{url_for('main.agregar_tarea')}}" method="post">
+                <input type="text" name="texto" id="texto">
+                <button type="submit">Agregar</button>
+            </form>
+        </div>
+        <div>
+            <ul>
+                {% for tarea in tareas %}
+                <li id="{{tarea.id}}" class="tarea {{'completada' if tarea.completada else ''}}">
+                    {{tarea.texto}}
+                    <form action="{{url_for('main.completar_tarea', id=tarea.id)}}" method="post">
+                        <button type="submit">Completar</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>

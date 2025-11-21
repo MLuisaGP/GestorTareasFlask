@@ -1,0 +1,7 @@
+.tarea {
+    list-style: none;
+}
+
+.tarea.completada {
+    text-decoration: line-through;
+}
