@@ -6,8 +6,8 @@ gestor = GestorDeTareas()
 
 @main_bp.route('/')
 def index():
-    
-    return render_template('index.html',title='Home',tareas=gestor.obtener_tareas())
+    tareas = gestor.obtener_tareas()
+    return render_template('index.html',title='Home',tareas=tareas)
 
 @main_bp.route('/agregar', methods=['POST'])
 def agregar_tarea():
@@ -15,7 +15,7 @@ def agregar_tarea():
     gestor.agregar_tarea(request.form['texto'])
     return redirect(url_for('main.index'))
 
-@main_bp.route('/completar/<uuid:id>', methods=['POST'])
+@main_bp.route('/completar/<id>', methods=['POST'])
 def completar_tarea(id):
     
     gestor.completar_tarea(id)
