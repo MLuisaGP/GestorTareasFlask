@@ -20,7 +20,7 @@ Puedes ver la lista completa de dependencias en el archivo `requirements.txt`.
 
 ## Autor
 
-[Tu Nombre]
+(MluisaGP)[https://github.com/MLuisaGP]
 
 ## Configuración y Ejecución
 
