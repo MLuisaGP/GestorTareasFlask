@@ -29,7 +29,7 @@ class GestorDeTareas:
     def completar_tarea(self, tarea_id):
         for tarea in self.tareas:
             if tarea['id'] == tarea_id:
-                tarea['completada'] = True
+                tarea['completada'] = not tarea['completada']
 
                 self.guardar_tareas()
                 return True
